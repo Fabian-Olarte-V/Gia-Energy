@@ -1,36 +1,121 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# GIA Energy Website
 
-## Getting Started
+Live site: `https://www.giaenergy.com/`
 
-First, run the development server:
+## Overview
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+This project is a corporate website for GIA Energy, a company focused on solar energy solutions in Colombia.
+
+I built it as a clear, conversion-focused website with two main goals:
+
+- present the company and its services in a professional way;
+- make it easy for potential clients to get in touch and request a quote.
+
+Even though the project is simple by nature, I approached it with the same mindset I use in larger products: make good technical decisions, keep the code maintainable, and avoid adding complexity that does not create real value.
+
+## What I Built
+
+The website includes:
+
+- a landing page with brand messaging, service highlights, and calls to action;
+- a services page with categorized solar and energy-related solutions;
+- a results page to showcase completed projects and build trust;
+- a contact page with a validated lead capture form;
+- reusable UI components such as header, footer, cards, labels, and shared sections.
+
+## Skills Demonstrated
+
+This project is small, but it reflects how I apply my knowledge in real business scenarios.
+
+- Frontend architecture: I structured the app with reusable components, separated static content into data modules, and kept the code organized around maintainability.
+- React and Next.js: I used the Next.js App Router, component-based composition, client-side interactivity where needed, and static export for a lightweight production build.
+- TypeScript: I defined interfaces for component props and data models to keep the implementation safer and easier to scale.
+- UI engineering: I built a responsive interface with SCSS, reusable styles, and a consistent visual structure across pages.
+- Form handling and validation: I implemented client-side validation and input sanitization for the contact form to improve data quality before submission.
+- Integration thinking: I connected the contact flow to an AWS Lambda function using Amazon SES through the AWS SDK, keeping the website simple while still supporting a real business process.
+- Deployment: I prepared the project for production and deployed it on Vercel.
+- Infrastructure basics: I configured the domain setup with Route 53 for a GoDaddy-registered domain and implemented SSL so the site is served securely over HTTPS.
+- Product judgment: I intentionally avoided overengineering and chose a solution proportional to the actual needs of the project.
+
+## Technical Decisions
+
+One of the things I wanted to show in this project is that good development is not only about adding features. It is also about knowing when not to complicate a solution.
+
+For this website, I decided to:
+
+- avoid global state management because the project does not need it;
+- keep most content in local data files instead of adding a CMS too early;
+- use a simple service layer for the email submission flow;
+- configure the project for static export to keep deployment simple;
+- focus on clarity, readability, and maintainability over unnecessary abstractions.
+
+That decision-making is part of my engineering approach. I try to build systems that match the real scope of the product instead of forcing patterns that only add noise.
+
+## Contact Flow
+
+The contact section is one of the most important parts of the site because it supports lead generation.
+
+Users can submit:
+
+- full name;
+- city;
+- phone number;
+- email;
+- estimated monthly energy cost range.
+
+On the frontend, I added validation and sanitization to improve the quality of the submitted data. For the email delivery flow, I used an AWS Lambda function integrated with Amazon SES through the AWS SDK.
+
+## Tech Stack
+
+- Next.js 15
+- React 19
+- TypeScript
+- Sass (SCSS)
+- Swiper
+- AWS Lambda
+- Amazon SES
+- Route 53
+- SSL / HTTPS
+- Vercel
+
+## Project Structure
+
+```text
+src/
+  app/          # Pages and app-level configuration
+  components/   # Reusable UI components
+  lib/          # Static data for content sections
+  services/     # External service integrations
+  styles/       # Shared Sass variables and mixins
+  utils/        # Small helper utilities
+
+public/         # Images, icons, video, and static assets
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Running The Project
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```bash
+npm install
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Local development runs at:
 
-## Learn More
+```bash
+http://localhost:3000
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Build And Deployment
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This project is configured for static export and production deployment.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm run build
+npm run export
+```
 
-## Deploy on Vercel
+The live version is deployed on Vercel:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+`https://www.giaenergy.com/`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+For production setup, I also configured the domain connection for a GoDaddy-registered domain through Route 53 and ensured the site was served over HTTPS with SSL enabled.
